@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		  <style>
+		  	#div1{
+		  		width: 300px;
+		  		height: 300px;
+		  		margin: 100px auto;
+		  		
+		  	}
+            #div1 input {
+                background: yellow;
+                width: 100px;
+                float: left;
+                border: none;
+            }
+            
+            #div1 input.active {
+                background: aliceblue;
+            }
+            
+            #div1 div {
+                width: 300px;
+                height: 200px;
+                background: greenyellow;
+                display: none;
+            }
+        </style>
+	</head>
+	<body>
+		<div id="div1">
+            <input class="active" type="button" value="aaa" />
+            <input type="button" value="bbb" />
+            <input type="button" value="ccc" />
+            <div style="display:block;">saysomething</div>
+            <div>sayHello</div>
+            <div>sayGoodbye</div>
+        </div>
+	</body>
+	<script>
+		window.onload = function() {
+                new TabSwitch('div1');
+            };
+
+            function TabSwitch(id) {
+                //将属性挂到this
+                var _this = this;
+                var div = document.getElementById(id);
+                this.ipt = div.getElementsByTagName('input');
+                this.divContents = div.getElementsByTagName('div');
+
+                for(var i = 0; i < this.ipt.length; i++) {
+                    this.ipt[i].index = i;
+                    this.ipt[i].onclick = function() {
+                        _this.fnClick(this);
+                    };
+                }
+            };
+            //函数不嵌套，方法写入原型
+            TabSwitch.prototype.fnClick = function(ref) {
+                for(var i = 0; i < this.ipt.length; i++) {
+                    this.ipt[i].className = ''
+                    this.divContents[i].style.display = 'none';
+                }
+                ref.className = 'active';
+                this.divContents[ref.index].style.display = 'block';
+            }
+	</script>
+</html>

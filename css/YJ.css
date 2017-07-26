@@ -1,0 +1,69 @@
+* {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	border: 0;
+}
+
+.tab {
+	width: 300px;
+	height: 300px;
+	margin: 100px auto;
+	position: relative;
+	border-radius: 50px;
+}
+
+.tab input {
+	width: 100px;
+	float: left;
+	height: 30px;
+}
+
+.tab .active {
+	background: greenyellow;
+	color: #FFF;
+}
+
+.tab ul li {
+	width: 300px;
+	height: 270px;
+	background: #C8E5BC;
+	font-size: 100px;
+	text-align: center;
+	line-height: 270px;
+	color: cornflowerblue;
+	display: none;
+}
+
+.tab .show {
+	display: block;
+}
+
+.tab section {
+	overflow: hidden;
+}
+
+.next {
+	position: absolute;
+	top: 45%;
+	width: 300px;
+}
+
+.next div {
+	display: block;
+	height: 50px;
+	width: 50px;
+	background: #E5E5E5;
+	cursor: pointer;
+	border-radius: 50%;
+	text-align: center;
+	line-height:50PX ;
+}
+
+.next .l {
+	float: left;
+}
+
+.next .r {
+	float: right;
+}
